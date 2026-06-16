@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Almoxarifado | Movimentações</title>
+
+  <link rel="stylesheet" href="../css/almoxarifado.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-plus">+</span>
+      <span>sua logo aqui</span>
+    </div>
+
+    <nav class="menu">
+      <a href="home-page.html">Início</a>
+      <a href="recepção.html">Pacientes</a>
+      <a href="lista-de-espera.html">Atendimentos</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="prontuario-medico.html">Prontuários</a>
+      <a href="almoxarifado.html" class="active">Almoxarifado</a>
+      <a href="#">Pessoas</a>
+      <a href="#">Relatórios</a>
+      <a href="#">Configurações</a>
+    </nav>
+
+    <div class="profile">
+      <button class="bell" type="button">
+        <span class="badge">8</span>
+
+        <svg viewBox="0 0 24 24">
+          <path d="M15 17H9a4 4 0 0 1-4-4V9a7 7 0 0 1 14 0v4a4 4 0 0 1-4 4Z"/>
+          <path d="M10 20h4"/>
+        </svg>
+      </button>
+
+      <div class="avatar">AS</div>
+
+      <div class="profile-info">
+        <strong>Olá, Dra. Ana Silva</strong>
+        <span>Administrador</span>
+      </div>
+
+      <svg class="chevron" viewBox="0 0 24 24">
+        <path d="m7 10 5 5 5-5"/>
+      </svg>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="breadcrumb">
+          <span>Início</span>
+
+          <svg viewBox="0 0 24 24">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+
+          <span>Almoxarifado</span>
+
+          <svg viewBox="0 0 24 24">
+            <path d="m9 18 6-6-6-6"/>
+          </svg>
+
+          <span>Movimentações</span>
+        </div>
+
+        <h1>Movimentações</h1>
+        <p>Acompanhe e controle todas as entradas e saídas de itens do almoxarifado.</p>
+      </div>
+
+      <div class="hero-actions">
+        <a href="./bipagem.html" class="btn-scan">
+          <svg viewBox="0 0 24 24">
+            <path d="M4 7V5a1 1 0 0 1 1-1h2"/>
+            <path d="M17 4h2a1 1 0 0 1 1 1v2"/>
+            <path d="M20 17v2a1 1 0 0 1-1 1h-2"/>
+            <path d="M7 20H5a1 1 0 0 1-1-1v-2"/>
+            <path d="M7 8v8"/>
+            <path d="M10 8v8"/>
+            <path d="M14 8v8"/>
+            <path d="M17 8v8"/>
+          </svg>
+
+          Bipar código
+        </a>
+
+        <button class="btn-primary" type="button" id="openMovement">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 5v14M5 12h14"/>
+          </svg>
+
+          Nova movimentação
+        </button>
+      </div>
+    </section>
+
+    <section class="tabs-card">
+      <button class="tab active" data-type="todas" type="button">Todas</button>
+      <button class="tab" data-type="entrada" type="button">Entradas</button>
+      <button class="tab" data-type="saida" type="button">Saídas</button>
+    </section>
+
+    <section class="filters-card">
+      <div class="field">
+        <label>Período</label>
+
+        <div class="date-box">
+          <svg viewBox="0 0 24 24">
+            <path d="M8 2v4M16 2v4M3 10h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/>
+          </svg>
+
+          <span>15/05/2026</span>
+          <span class="arrow">→</span>
+          <span>15/06/2026</span>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Tipo</label>
+
+        <select id="typeFilter">
+          <option value="todas">Todos</option>
+          <option value="entrada">Entrada</option>
+          <option value="saida">Saída</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label>Item</label>
+
+        <div class="search-box">
+          <input id="searchInput" type="text" placeholder="Buscar item..." />
+
+          <svg viewBox="0 0 24 24">
+            <path d="m21 21-4.3-4.3M10.8 18a7.2 7.2 0 1 1 0-14.4 7.2 7.2 0 0 1 0 14.4Z"/>
+          </svg>
+        </div>
+      </div>
+
+      <div class="field">
+        <label>Usuário</label>
+
+        <select id="userFilter">
+          <option value="todos">Todos os usuários</option>
+          <option value="joao silva">João Silva</option>
+          <option value="maria santos">Maria Santos</option>
+          <option value="carlos lima">Carlos Lima</option>
+        </select>
+      </div>
+
+      <button class="btn-filter" type="button" id="clearFilters">
+        <svg viewBox="0 0 24 24">
+          <path d="M4 5h16M7 12h10M10 19h4"/>
+        </svg>
+
+        Filtros
+      </button>
+    </section>
+
+    <section class="table-card">
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Tipo</th>
+              <th>Item</th>
+              <th>Quantidade</th>
+              <th>Motivo / Fornecedor</th>
+              <th>Usuário</th>
+              <th>Ações</th>
+            </tr>
+          </thead>
+
+          <tbody id="movementTable"></tbody>
+        </table>
+      </div>
+
+      <footer class="table-footer">
+        <span id="paginationInfo">Mostrando 1 a 8 de 128 movimentações</span>
+
+        <div class="pagination-area">
+          <select id="pageSize">
+            <option value="8">8 por página</option>
+            <option value="10" selected>10 por página</option>
+            <option value="20">20 por página</option>
+            <option value="50">50 por página</option>
+          </select>
+
+          <button class="page-btn" id="prevPage" type="button">‹</button>
+
+          <div id="pageNumbers" class="page-numbers"></div>
+
+          <button class="page-btn" id="nextPage" type="button">›</button>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal">
+      <div class="modal-header">
+        <div>
+          <h2>Nova movimentação</h2>
+          <p>Registre uma entrada ou saída no almoxarifado.</p>
+        </div>
+
+        <button type="button" class="modal-close" id="closeMovement">×</button>
+      </div>
+
+      <form id="movementForm" class="modal-form">
+        <label>
+          Tipo
+
+          <select id="newType" required>
+            <option value="entrada">Entrada</option>
+            <option value="saida">Saída</option>
+          </select>
+        </label>
+
+        <label>
+          Item
+
+          <input id="newItem" type="text" placeholder="Ex: Dipirona 500mg/mL" required />
+        </label>
+
+        <label>
+          Descrição
+
+          <input id="newDesc" type="text" placeholder="Ex: Ampola 2mL" required />
+        </label>
+
+        <label>
+          Quantidade
+
+          <input id="newQty" type="number" min="1" placeholder="Ex: 200" required />
+        </label>
+
+        <label>
+          Motivo / Fornecedor
+
+          <input id="newReason" type="text" placeholder="Ex: Compra - Med Center Hospitalar" required />
+        </label>
+
+        <label>
+          Usuário
+
+          <select id="newUser" required>
+            <option value="João Silva">João Silva</option>
+            <option value="Maria Santos">Maria Santos</option>
+            <option value="Carlos Lima">Carlos Lima</option>
+          </select>
+        </label>
+
+        <button class="btn-primary full" type="submit">Salvar movimentação</button>
+      </form>
+    </div>
+  </div>  <script src="../js/fluxo-hospital.js"></script>
+
+  <script src="../js/almoxarifado.js"></script>
+</body>
+</html>

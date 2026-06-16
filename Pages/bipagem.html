@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Bipagem | Almoxarifado</title>
+
+  <link rel="stylesheet" href="../css/bipagem.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-plus">+</span>
+      <span>sua logo aqui</span>
+    </div>
+
+    <nav class="menu">
+      <a href="home-page.html">Início</a>
+      <a href="recepção.html">Pacientes</a>
+      <a href="lista-de-espera.html">Atendimentos</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="prontuario-medico.html">Prontuários</a>
+      <a href="almoxarifado.html" class="active">Almoxarifado</a>
+      <a href="#">Pessoas</a>
+      <a href="#">Relatórios</a>
+      <a href="#">Configurações</a>
+    </nav>
+
+    <div class="profile">
+      <button class="bell" type="button">
+        <span class="badge">8</span>
+        <svg viewBox="0 0 24 24">
+          <path d="M15 17H9a4 4 0 0 1-4-4V9a7 7 0 0 1 14 0v4a4 4 0 0 1-4 4Z"/>
+          <path d="M10 20h4"/>
+        </svg>
+      </button>
+
+      <div class="avatar">AS</div>
+
+      <div class="profile-info">
+        <strong>Olá, Dra. Ana Silva</strong>
+        <span>Administrador</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="breadcrumb">
+          <span>Início</span>
+          <span>›</span>
+          <span>Almoxarifado</span>
+          <span>›</span>
+          <span>Bipagem</span>
+        </div>
+
+        <h1>Bipagem de Estoque</h1>
+        <p>Bipe o código de barras para registrar entrada ou saída dos itens do almoxarifado.</p>
+      </div>
+
+      <a href="./almoxarifado.html" class="btn-secondary">
+        Voltar para movimentações
+      </a>
+    </section>
+
+    <section class="scanner-layout">
+      <div class="scanner-card">
+        <div class="scanner-header">
+          <div class="scanner-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M4 7V5a1 1 0 0 1 1-1h2"/>
+              <path d="M17 4h2a1 1 0 0 1 1 1v2"/>
+              <path d="M20 17v2a1 1 0 0 1-1 1h-2"/>
+              <path d="M7 20H5a1 1 0 0 1-1-1v-2"/>
+              <path d="M7 8v8"/>
+              <path d="M10 8v8"/>
+              <path d="M14 8v8"/>
+              <path d="M17 8v8"/>
+            </svg>
+          </div>
+
+          <div>
+            <h2>Leitor de código de barras</h2>
+            <p>Deixe o campo ativo e bipe o produto com o scanner.</p>
+          </div>
+        </div>
+
+        <div class="operation-box">
+          <button class="operation active" data-operation="entrada" type="button">
+            Entrada
+          </button>
+
+          <button class="operation" data-operation="saida" type="button">
+            Saída
+          </button>
+        </div>
+
+        <label class="field">
+          Código de barras
+          <input 
+            id="barcodeInput" 
+            type="text" 
+            placeholder="Bipe ou digite o código aqui..." 
+            autocomplete="off"
+            autofocus
+          />
+        </label>
+
+        <div class="quantity-row">
+          <label class="field">
+            Quantidade
+            <input id="quantityInput" type="number" min="1" value="1" />
+          </label>
+
+          <button class="btn-primary" id="confirmScan" type="button">
+            Confirmar bipagem
+          </button>
+        </div>
+
+        <div class="scanner-status" id="scannerStatus">
+          Aguardando bipagem...
+        </div>
+      </div>
+
+      <div class="item-card" id="itemCard">
+        <div class="empty-state">
+          <div class="empty-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M21 8 12 3 3 8l9 5 9-5Z"/>
+              <path d="M3 8v8l9 5 9-5V8"/>
+              <path d="M12 13v8"/>
+            </svg>
+          </div>
+
+          <h3>Nenhum item bipado</h3>
+          <p>Assim que o scanner ler um código, os dados do produto aparecem aqui.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="table-card">
+      <div class="table-header">
+        <div>
+          <h2>Últimas bipagens</h2>
+          <p>Histórico das movimentações feitas por scanner.</p>
+        </div>
+
+        <button class="btn-danger-soft" id="clearHistory" type="button">
+          Limpar histórico
+        </button>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Data</th>
+              <th>Tipo</th>
+              <th>Código</th>
+              <th>Item</th>
+              <th>Quantidade</th>
+              <th>Estoque atual</th>
+              <th>Usuário</th>
+            </tr>
+          </thead>
+
+          <tbody id="historyTable"></tbody>
+        </table>
+      </div>
+    </section>
+  </main>  <script src="../js/fluxo-hospital.js"></script>
+
+  <script src="../js/bipagem.js"></script>
+</body>
+</html>

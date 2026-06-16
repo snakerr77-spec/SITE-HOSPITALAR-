@@ -1,0 +1,661 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Triagem | Sistema Hospitalar Público</title>
+  <link rel="stylesheet" href="/css/triagem.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="topbar">
+    <a class="brand" href="home-page.html">
+      <span class="brand-cross">✚</span>
+      <span>sua logo aqui</span>
+    </a>
+
+    <nav class="nav">
+      <a href="home-page.html">Início</a>
+      <a href="recepção.html">Pacientes</a>
+      <a href="lista-de-espera.html">Atendimentos</a>
+      <a class="active" href="triagem.html">Triagem</a>
+      <a href="prontuario-medico.html">Prontuários</a>
+      <a href="almoxarifado.html">Almoxarifado</a>
+      <a href="#">Pessoas</a>
+      <a href="#">Relatórios</a>
+      <a href="#">Configurações</a>
+    </nav>
+
+    <div class="user-area">
+      <button class="bell" aria-label="Notificações">
+        <span>5</span>
+        🔔
+      </button>
+
+      <div class="profile">
+        <div class="avatar">AS</div>
+        <div>
+          <strong>Olá, Dra. Ana Silva</strong>
+          <small>Administrador</small>
+        </div>
+        <span class="chevron">⌄</span>
+      </div>
+    </div>
+  </header>
+
+  <main class="triage-page">
+    <div class="breadcrumb reveal">
+      <a href="home-page.html">Início</a>
+      <span>›</span>
+      <a href="triagem.html">Triagem</a>
+      <span>›</span>
+      <strong>Nova Triagem</strong>
+    </div>
+
+    <section class="triage-header reveal">
+      <div class="triage-title-wrap">
+        <div class="triage-header-icon">⚕</div>
+        <div>
+          <h1>Nova Triagem</h1>
+          <p>Cadastre e avalie o paciente para classificação de risco.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="triage-layout">
+      <article class="triage-card triage-form reveal">
+        <h2>Dados do Paciente</h2>
+
+        <div class="form-grid form-grid-top">
+          <label class="field field-span-2">
+            <span>Nome do Paciente <b>*</b></span>
+            <input id="nomePaciente" type="text" placeholder="Digite o nome completo">
+          </label>
+
+          <label class="field">
+            <span>CPF <b>*</b></span>
+            <input id="cpfPaciente" type="text" inputmode="numeric" maxlength="14" autocomplete="off" placeholder="000.000.000-00">
+          </label>
+
+          <label class="field">
+            <span>Data de Nascimento</span>
+            <input id="dataNascimento" type="text" inputmode="numeric" maxlength="10" autocomplete="off" placeholder="DD/MM/AAAA">
+          </label>
+
+          <label class="field field-age">
+            <span>Idade</span>
+            <input id="idadePaciente" type="text" placeholder="--" readonly>
+          </label>
+
+          <label class="field">
+            <span>Sexo</span>
+            <select id="sexoPaciente">
+              <option>Selecione</option>
+              <option>Masculino</option>
+              <option>Feminino</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Telefone</span>
+            <input id="telefonePaciente" type="text" inputmode="numeric" maxlength="15" placeholder="(00) 00000-0000">
+          </label>
+
+          <label class="field">
+            <span>Convênio</span>
+            <select id="convenioPaciente">
+              <option>Selecione</option>
+              <option>SUS</option>
+              <option>Particular</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Nº do Prontuário</span>
+            <input id="prontuarioPaciente" type="text" placeholder="Opcional">
+          </label>
+        </div>
+
+        <label class="field field-full">
+          <span>Sintomas Principais <b>*</b></span>
+          <textarea id="sintomasPaciente" rows="4" placeholder="Descreva os sintomas relatados pelo paciente"></textarea>
+          <small id="contadorSintomas">0/500</small>
+        </label>
+
+        <div class="section-label">Sinais Vitais</div>
+
+        <div class="vitals-grid">
+          <div class="field range-field">
+            <span>Dor (0-10) <b>*</b></span>
+
+            <div class="pain-range">
+              <input id="painRange" type="range" min="0" max="10" value="5">
+
+              <div class="range-scale">
+                <span>0</span>
+                <span>5</span>
+                <span>10</span>
+              </div>
+            </div>
+
+            <div class="mini-box" id="painValue">5</div>
+          </div>
+
+          <label class="field">
+            <span>Saturação (%) <b>*</b></span>
+            <div class="inline-suffix">
+              <input id="saturacaoPaciente" type="text" inputmode="numeric" value="98">
+              <em>%</em>
+            </div>
+          </label>
+
+          <label class="field">
+            <span>Pressão Arterial (mmHg) <b>*</b></span>
+            <div class="pressure-group">
+              <input id="pressaoSistolica" type="text" inputmode="numeric" value="120">
+              <i>/</i>
+              <input id="pressaoDiastolica" type="text" inputmode="numeric" value="80">
+            </div>
+          </label>
+
+          <label class="field">
+            <span>Frequência Cardíaca (bpm) <b>*</b></span>
+            <input id="frequenciaCardiaca" type="text" inputmode="numeric" value="82">
+          </label>
+
+          <label class="field">
+            <span>Temperatura (°C)</span>
+            <div class="inline-suffix">
+              <input id="temperaturaPaciente" type="text" inputmode="decimal" value="36,7">
+              <em>°C</em>
+            </div>
+          </label>
+
+          <label class="field">
+            <span>Frequência Respiratória (irpm)</span>
+            <input id="frequenciaRespiratoria" type="text" inputmode="numeric" value="18">
+          </label>
+
+          <label class="field">
+            <span>Glicemia (mg/dL)</span>
+            <input id="glicemiaPaciente" type="text" inputmode="numeric" placeholder="--">
+          </label>
+
+          <label class="field">
+            <span>Escala de Glasgow</span>
+            <select id="glasgowPaciente">
+              <option>--</option>
+              <option>15</option>
+              <option>14</option>
+              <option>13</option>
+              <option>12</option>
+              <option>11</option>
+              <option>10</option>
+              <option>9</option>
+              <option>8</option>
+              <option>7</option>
+              <option>6</option>
+              <option>5</option>
+              <option>4</option>
+              <option>3</option>
+            </select>
+          </label>
+        </div>
+
+        <label class="field field-full">
+          <span>Observações</span>
+          <textarea id="observacoesPaciente" rows="4" placeholder="Informações adicionais sobre o paciente (alergias, histórico relevante, medicações em uso, etc.)"></textarea>
+          <small id="contadorObservacoes">0/500</small>
+        </label>
+
+        <div class="triage-actions">
+          <label class="check-row">
+            <input id="encaminharPaciente" type="checkbox" checked>
+            <span>Encaminhar para atendimento após triagem</span>
+          </label>
+
+          <div class="button-row">
+            <button class="btn neutral" id="btnLimparTriagem" type="button">🗑 Limpar</button>
+            <button class="btn primary" id="saveTriageBtn" type="button">◫ Salvar e Classificar</button>
+          </div>
+        </div>
+      </article>
+
+      <aside class="triage-side">
+        <article class="triage-card reveal delay-1">
+          <div class="side-head">
+            <h2>Classificação de Risco <small>(ao vivo)</small></h2>
+            <button class="mini-chip" type="button">Algoritmo: Manchester</button>
+          </div>
+
+          <div class="risk-highlight amarelo" id="riskHighlight">
+            <div class="risk-dot"></div>
+            <div class="risk-text">AMARELO</div>
+            <div class="risk-sub">Urgência</div>
+            <p>Atendimento em até 60 minutos</p>
+          </div>
+
+          <div class="justification">
+            <h3>Justificativa</h3>
+            <p>Sinais vitais estáveis e sintomas de média gravidade.</p>
+            <a href="#">Ver detalhes do protocolo →</a>
+          </div>
+
+          <div class="manual-title">Selecionar classificação manual</div>
+
+          <input type="hidden" id="riskInput" value="amarelo">
+
+          <div class="risk-options">
+            <button class="risk-option" type="button" data-risk="vermelho">
+              <span class="ball red"></span>
+              <strong>Vermelho</strong>
+              <small>Imediato</small>
+            </button>
+
+            <button class="risk-option" type="button" data-risk="laranja">
+              <span class="ball orange"></span>
+              <strong>Laranja</strong>
+              <small>Muito urgente</small>
+            </button>
+
+            <button class="risk-option active" type="button" data-risk="amarelo">
+              <span class="ball yellow"></span>
+              <strong>Amarelo</strong>
+              <small>Urgente</small>
+            </button>
+
+            <button class="risk-option" type="button" data-risk="verde">
+              <span class="ball green"></span>
+              <strong>Verde</strong>
+              <small>Pouco urgente</small>
+            </button>
+
+            <button class="risk-option" type="button" data-risk="azul">
+              <span class="ball blue"></span>
+              <strong>Azul</strong>
+              <small>Não urgente</small>
+            </button>
+          </div>
+        </article>
+
+        <article class="triage-card reveal delay-2">
+          <div class="panel-head compact">
+            <h2>Últimas Triagens</h2>
+            <button id="btnVerTodasTriagens" type="button">Ver todas</button>
+          </div>
+
+          <div class="latest-triage-list" id="ultimasTriagensLista">
+            <div class="latest-triage-item" data-paciente="José da Silva" data-classificacao="amarelo" data-tempo="25 min" data-status="Em atendimento">
+              <div>
+                <strong>José da Silva</strong>
+                <small>Paciente</small>
+              </div>
+              <span class="tag-risk yellow">AMARELO</span>
+              <div>
+                <strong>25 min</strong>
+                <small>Tempo</small>
+              </div>
+              <div>
+                <strong>Em atendimento</strong>
+                <small>Status</small>
+              </div>
+            </div>
+
+            <div class="latest-triage-item" data-paciente="Maria de Fátima" data-classificacao="verde" data-tempo="40 min" data-status="Aguardando">
+              <div>
+                <strong>Maria de Fátima</strong>
+                <small>Paciente</small>
+              </div>
+              <span class="tag-risk green">VERDE</span>
+              <div>
+                <strong>40 min</strong>
+                <small>Tempo</small>
+              </div>
+              <div>
+                <strong>Aguardando</strong>
+                <small>Status</small>
+              </div>
+            </div>
+
+            <div class="latest-triage-item" data-paciente="Antônio Carlos" data-classificacao="laranja" data-tempo="15 min" data-status="Em atendimento">
+              <div>
+                <strong>Antônio Carlos</strong>
+                <small>Paciente</small>
+              </div>
+              <span class="tag-risk orange">LARANJA</span>
+              <div>
+                <strong>15 min</strong>
+                <small>Tempo</small>
+              </div>
+              <div>
+                <strong>Em atendimento</strong>
+                <small>Status</small>
+              </div>
+            </div>
+          </div>
+        </article>
+      </aside>
+    </section>
+  </main>
+
+  <div class="triage-modal" id="modalTriagens">
+    <div class="triage-modal-backdrop" id="fecharModalTriagens"></div>
+
+    <div class="triage-modal-content">
+      <div class="triage-modal-header">
+        <div>
+          <span>Histórico completo</span>
+          <h2>Todas as Triagens</h2>
+        </div>
+        <button id="btnFecharTriagens" type="button">×</button>
+      </div>
+
+      <div class="triage-modal-tools">
+        <input type="text" id="buscarTriagem" placeholder="Buscar por paciente, classificação ou status...">
+
+        <select id="filtroClassificacao">
+          <option value="todas">Todas as classificações</option>
+          <option value="amarelo">Amarelo</option>
+          <option value="verde">Verde</option>
+          <option value="laranja">Laranja</option>
+          <option value="azul">Azul</option>
+          <option value="vermelho">Vermelho</option>
+        </select>
+      </div>
+
+      <div class="triage-modal-table-wrap">
+        <table class="triage-modal-table">
+          <thead>
+            <tr>
+              <th>Paciente</th>
+              <th>Classificação</th>
+              <th>Tempo</th>
+              <th>Status</th>
+              <th>Data</th>
+              <th>Ação</th>
+            </tr>
+          </thead>
+
+          <tbody id="listaTodasTriagens">
+            <tr data-classificacao="amarelo">
+              <td>José da Silva</td>
+              <td><span class="tag-risk yellow">AMARELO</span></td>
+              <td>25 min</td>
+              <td>Em atendimento</td>
+              <td>15/06/2026</td>
+              <td><button class="btn-ver-detalhe" type="button">Ver detalhes</button></td>
+            </tr>
+
+            <tr data-classificacao="verde">
+              <td>Maria de Fátima</td>
+              <td><span class="tag-risk green">VERDE</span></td>
+              <td>40 min</td>
+              <td>Aguardando</td>
+              <td>15/06/2026</td>
+              <td><button class="btn-ver-detalhe" type="button">Ver detalhes</button></td>
+            </tr>
+
+            <tr data-classificacao="laranja">
+              <td>Antônio Carlos</td>
+              <td><span class="tag-risk orange">LARANJA</span></td>
+              <td>15 min</td>
+              <td>Em atendimento</td>
+              <td>15/06/2026</td>
+              <td><button class="btn-ver-detalhe" type="button">Ver detalhes</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="detail-modal" id="modalDetalheTriagem">
+    <div class="detail-modal-bg" id="fecharDetalheTriagem"></div>
+
+    <div class="detail-modal-box">
+      <div class="detail-modal-header">
+        <div>
+          <span>Detalhes da triagem</span>
+          <h2 id="detalhePacienteNome">Paciente</h2>
+        </div>
+        <button id="btnFecharDetalheTriagem" type="button">×</button>
+      </div>
+
+      <div class="detail-modal-body">
+        <div class="detail-info-card">
+          <small>Classificação</small>
+          <strong id="detalheClassificacao">-</strong>
+        </div>
+
+        <div class="detail-info-card">
+          <small>Tempo</small>
+          <strong id="detalheTempo">-</strong>
+        </div>
+
+        <div class="detail-info-card">
+          <small>Status</small>
+          <strong id="detalheStatus">-</strong>
+        </div>
+
+        <div class="detail-info-card">
+          <small>Protocolo</small>
+          <strong id="detalheProtocolo">Manchester</strong>
+        </div>
+      </div>
+
+      <div class="detail-modal-footer">
+        <button class="btn neutral" id="btnFecharDetalheRodape" type="button">Fechar</button>
+        <button class="btn primary" id="btnAbrirProntuario" type="button">Abrir prontuário</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="record-modal" id="modalProntuario">
+    <div class="record-modal-bg" id="fecharProntuario"></div>
+
+    <div class="record-modal-box">
+      <div class="record-modal-header">
+        <div>
+          <span>Prontuário eletrônico</span>
+          <h2 id="prontuarioNome">Paciente</h2>
+          <p id="prontuarioResumo">Registro clínico da triagem</p>
+        </div>
+
+        <button id="btnFecharProntuario" type="button">×</button>
+      </div>
+
+      <div class="record-modal-body">
+        <section class="record-grid">
+          <article class="record-panel patient-summary">
+            <div class="record-panel-title">
+              <h3>Dados do paciente</h3>
+              <span id="prontuarioRiscoTag" class="tag-risk yellow">AMARELO</span>
+            </div>
+
+            <div class="record-info-grid">
+              <div>
+                <small>Paciente</small>
+                <strong id="prontuarioPacienteNome">-</strong>
+              </div>
+
+              <div>
+                <small>CPF</small>
+                <strong id="prontuarioCpf">Não informado</strong>
+              </div>
+
+              <div>
+                <small>Data de nascimento</small>
+                <strong id="prontuarioNascimento">Não informado</strong>
+              </div>
+
+              <div>
+                <small>Idade</small>
+                <strong id="prontuarioIdade">--</strong>
+              </div>
+
+              <div>
+                <small>Telefone</small>
+                <strong id="prontuarioTelefone">Não informado</strong>
+              </div>
+
+              <div>
+                <small>Convênio</small>
+                <strong id="prontuarioConvenio">Não informado</strong>
+              </div>
+
+              <div>
+                <small>Nº Prontuário</small>
+                <strong id="prontuarioNumero">Não informado</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="record-panel">
+            <div class="record-panel-title">
+              <h3>Triagem atual</h3>
+              <button type="button">Hoje</button>
+            </div>
+
+            <div class="record-info-grid">
+              <div>
+                <small>Classificação</small>
+                <strong id="prontuarioClassificacao">-</strong>
+              </div>
+
+              <div>
+                <small>Status</small>
+                <strong id="prontuarioStatus">-</strong>
+              </div>
+
+              <div>
+                <small>Tempo</small>
+                <strong id="prontuarioTempo">-</strong>
+              </div>
+
+              <div>
+                <small>Protocolo</small>
+                <strong>Manchester</strong>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="record-content-grid">
+          <article class="record-panel">
+            <div class="record-panel-title">
+              <h3>Sinais vitais</h3>
+            </div>
+
+            <div class="vital-cards">
+              <div>
+                <small>Dor</small>
+                <strong id="prontuarioDor">5/10</strong>
+              </div>
+
+              <div>
+                <small>Saturação</small>
+                <strong id="prontuarioSaturacao">98%</strong>
+              </div>
+
+              <div>
+                <small>Pressão</small>
+                <strong id="prontuarioPressao">120/80</strong>
+              </div>
+
+              <div>
+                <small>FC</small>
+                <strong id="prontuarioFc">82 bpm</strong>
+              </div>
+
+              <div>
+                <small>Temp.</small>
+                <strong id="prontuarioTemp">36,7°C</strong>
+              </div>
+
+              <div>
+                <small>FR</small>
+                <strong id="prontuarioFr">18 irpm</strong>
+              </div>
+            </div>
+          </article>
+
+          <article class="record-panel body-panel">
+            <div class="record-panel-title">
+              <h3>Mapa corporal</h3>
+              <button type="button">Frente</button>
+            </div>
+
+            <div class="body-map">
+              <div class="body-head"></div>
+              <div class="body-neck"></div>
+              <div class="body-torso"></div>
+              <div class="body-arm left"></div>
+              <div class="body-arm right"></div>
+              <div class="body-leg left"></div>
+              <div class="body-leg right"></div>
+              <span class="body-alert chest">Dor</span>
+              <span class="body-alert head">Sintoma</span>
+            </div>
+          </article>
+
+          <article class="record-panel notes-panel">
+            <div class="record-panel-title">
+              <h3>Anotações clínicas</h3>
+            </div>
+
+            <label>
+              <span>Sintomas principais</span>
+              <textarea id="prontuarioSintomas" rows="5" placeholder="Sintomas informados na triagem"></textarea>
+            </label>
+
+            <label>
+              <span>Conduta / evolução</span>
+              <textarea rows="5" placeholder="Descreva a avaliação médica, hipótese diagnóstica e conduta inicial"></textarea>
+            </label>
+          </article>
+
+          <article class="record-panel timeline-panel">
+            <div class="record-panel-title">
+              <h3>Histórico do atendimento</h3>
+            </div>
+
+            <div class="timeline">
+              <div>
+                <span></span>
+                <strong>Paciente cadastrado na triagem</strong>
+                <small>Registro iniciado pelo setor de acolhimento.</small>
+              </div>
+
+              <div>
+                <span></span>
+                <strong>Classificação aplicada</strong>
+                <small id="timelineClassificacao">Risco amarelo, atendimento em até 60 minutos.</small>
+              </div>
+
+              <div>
+                <span></span>
+                <strong>Prontuário aberto</strong>
+                <small>Disponível para avaliação médica.</small>
+              </div>
+            </div>
+          </article>
+        </section>
+      </div>
+
+      <div class="record-modal-footer record-modal-footer-smart">
+        <button class="btn neutral btn-back-triage" id="btnVoltarTriagem" type="button">
+          <span class="btn-arrow">‹</span>
+          Voltar para triagem
+        </button>
+        <button class="btn primary" id="btnSalvarProntuario" type="button">Salvar prontuário</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/fluxo-hospital.js"></script>
+  <script src="/js/triagem.js"></script>
+</body>
+</html>
