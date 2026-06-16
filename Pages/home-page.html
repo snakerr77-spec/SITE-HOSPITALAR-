@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Hospitalar Público</title>
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="home-page.html">
+      <span class="brand-cross">✚</span>
+      <span>sua logo aqui</span>
+    </a>
+
+    <nav class="nav">
+      <a class="active" href="#inicio">Início</a>
+      <a href="recepção.html">Pacientes</a>
+      <a href="lista-de-espera.html">Atendimentos</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="prontuario-medico.html">Prontuários</a>
+      <a href="almoxarifado.html">Almoxarifado</a>
+      <a href="#modulos">Pessoas</a>
+      <a href="#relatorios">Relatórios</a>
+      <a href="#config">Configurações</a>
+    </nav>
+
+    <div class="user-area">
+      <button class="bell" aria-label="Notificações"><span>5</span>🔔</button>
+      <div class="profile">
+        <div class="avatar">AS</div>
+        <div>
+          <strong>Olá, Dra. Ana Silva</strong>
+          <small>Administrador</small>
+        </div>
+        <span class="chevron">⌄</span>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="hero-copy reveal">
+        <p class="eyebrow">Sistema Hospitalar Público</p>
+        <h1>Gestão completa para uma saúde pública melhor</h1>
+        <p class="hero-text">O sistema integrado que moderniza a gestão hospitalar, otimiza processos e melhora o atendimento ao cidadão.</p>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="recepção.html">▣ Novo Atendimento</a>
+          <a class="btn ghost" href="#relatorios">» Ver Dashboards</a>
+        </div>
+
+        <div class="trust-row">
+          <span>◎ 100% Integrado</span>
+          <span>◇ Seguro e Confiável</span>
+          <span>♢ Conformidade LGPD</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal delay-1">
+        <div class="hospital-card modern-hero-card">
+          <div class="hero-grid-bg"></div>
+          <div class="hero-dashboard-card main-preview">
+            <div class="preview-header">
+              <span></span><span></span><span></span>
+              <strong>Hospital Público</strong>
+            </div>
+            <div class="preview-kpis">
+              <div><small>Na fila</small><b>58</b></div>
+              <div><small>Triagens</small><b>97</b></div>
+              <div><small>Atendidos</small><b>128</b></div>
+            </div>
+            <div class="preview-table-line long"></div>
+            <div class="preview-table-line"></div>
+            <div class="preview-table-line short"></div>
+          </div>
+          <div class="floating-status status-red">
+            <span>Senha atual</span>
+            <strong>A123</strong>
+            <small>Clínica Geral</small>
+          </div>
+          <div class="floating-status status-white">
+            <span>Próximo setor</span>
+            <strong>Triagem</strong>
+          </div>
+          <div class="hero-cross-mark">✚</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="modulos" class="modules reveal delay-2">
+      <article class="module-card">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M18 14v5M15.5 16.5h5"/></svg></div>
+        <div><h3>Cadastro de Pacientes</h3><p>Cadastre e gerencie informações completas dos pacientes.</p><a href="recepção.html">Acessar módulo →</a></div>
+      </article>
+
+      <article class="module-card">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v6a5 5 0 0 0 10 0V3"/><path d="M5 3h4M15 3h4"/><path d="M12 14v2a4 4 0 0 0 8 0v-1"/><path d="M20 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"/></svg></div>
+        <div><h3>Triagem</h3><p>Realize a triagem e classificação de risco dos pacientes.</p><a href="triagem.html">Acessar módulo →</a></div>
+      </article>
+
+      <article class="module-card">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 4h8l1 2h3v15H4V6h3Z"/><path d="M9 12h6M12 9v6"/><path d="M8 4h8"/></svg></div>
+        <div><h3>Prontuário Eletrônico</h3><p>Acesse e atualize o prontuário médico do paciente.</p><a href="prontuario-medico.html">Acessar módulo →</a></div>
+      </article>
+
+      <article class="module-card">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 7 9-4 9 4-9 4Z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/><path d="m7.5 5 9 4"/></svg></div>
+        <div><h3>Almoxarifado</h3><p>Gerencie estoque, entradas, saídas e controle de itens.</p><a href="almoxarifado.html">Acessar módulo →</a></div>
+      </article>
+
+      <article class="module-card">
+        <div class="icon filled"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7h11v10H3Z"/><path d="M14 10h4l3 3v4h-7Z"/><path d="M6 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0ZM16 17a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"/><path d="M7 10v4M5 12h4"/></svg></div>
+        <div><h3>Ambulâncias</h3><p>Controle a frota, equipes e ocorrências das ambulâncias.</p><a href="#">Acessar módulo →</a></div>
+      </article>
+
+      <article class="module-card">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 12a4 4 0 1 0-4-4 4 4 0 0 0 4 4Z"/><path d="M4 21a8 8 0 0 1 16 0"/><path d="M18 10a3 3 0 0 0-2-5.8M20.5 20a5.5 5.5 0 0 0-4-5.2"/><path d="M6 10a3 3 0 0 1 2-5.8M3.5 20a5.5 5.5 0 0 1 4-5.2"/></svg></div>
+        <div><h3>Pessoas / Equipe</h3><p>Gerencie profissionais, escalas e permissões de acesso.</p><a href="#">Acessar módulo →</a></div>
+      </article>
+
+      <article class="module-card">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 6h14v12H5Z"/><path d="M8 9h8M8 12h8M8 15h5"/><path d="M4 8H2v8h2M20 8h2v8h-2"/></svg></div>
+        <div><h3>Fila / Senhas</h3><p>Acompanhe a fila de atendimento e chame as senhas.</p><a href="lista-de-espera.html">Acessar módulo →</a></div>
+      </article>
+
+      <article class="module-card">
+        <div class="icon"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h10l4 4v14H5Z"/><path d="M15 3v5h5"/><path d="M8 17v-4M12 17V9M16 17v-6"/></svg></div>
+        <div><h3>Relatórios</h3><p>Gere relatórios gerenciais e análises de indicadores.</p><a href="#relatorios">Acessar módulo →</a></div>
+      </article>
+    </section>
+
+    <section class="dashboard-grid">
+      <article class="panel stats reveal">
+        <div class="panel-head red"><h2>Estatísticas Rápidas</h2><button>▣ Hoje⌄</button></div>
+        <div class="stat-list">
+          <div><span>♚</span><strong data-count="1248">0</strong><small>Atendimentos</small><b class="up">+12%</b><em>vs ontem</em></div>
+          <div><span>♙</span><strong data-count="382">0</strong><small>Pacientes novos</small><b class="up">+8%</b><em>vs ontem</em></div>
+          <div><span>♬</span><strong data-count="97">0</strong><small>Em atendimento</small><b class="down">-5%</b><em>vs ontem</em></div>
+          <div><span>✓</span><strong data-count="1024">0</strong><small>Finalizados</small><b class="up">+15%</b><em>vs ontem</em></div>
+        </div>
+      </article>
+
+      <article class="panel notices reveal delay-2">
+        <div class="panel-head"><h2>Avisos e Comunicados</h2><button>Ver todos</button></div>
+        <div class="notice warning"><span>⚠</span><div><strong>Estoque baixo</strong><p>Alguns itens do almoxarifado estão com estoque baixo.</p></div><small>há 15 min</small></div>
+        <div class="notice"><span>▣</span><div><strong>Manutenção programada</strong><p>Sistema passará por manutenção no dia 25/05 às 22h.</p></div><small>há 1 hora</small></div>
+        <div class="notice"><span>◌</span><div><strong>Atualização disponível</strong><p>Nova atualização do sistema disponível.</p></div><small>há 2 horas</small></div>
+      </article>
+    </section>
+  </main>
+
+  <script src="../js/fluxo-hospital.js"></script>
+  <script src="../js/home.js"></script>
+</body>
+</html>

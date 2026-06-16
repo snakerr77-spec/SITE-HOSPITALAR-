@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Prontuário Médico</title>
+
+  <link rel="stylesheet" href="../css/prontuario-medico.css" />
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <span class="brand-plus">+</span>
+      <span>sua logo aqui</span>
+    </div>
+
+    <nav class="menu">
+      <a href="home-page.html">Início</a>
+      <a href="recepção.html">Pacientes</a>
+      <a href="lista-de-espera.html">Atendimentos</a>
+      <a href="triagem.html">Triagem</a>
+      <a href="#" class="active">Prontuários</a>
+      <a href="almoxarifado.html">Almoxarifado</a>
+      <a href="#">Pessoas</a>
+      <a href="#">Relatórios</a>
+      <a href="#">Configurações</a>
+    </nav>
+
+    <div class="profile">
+      <button class="bell" type="button">
+        <span class="badge">8</span>
+
+        <svg viewBox="0 0 24 24">
+          <path d="M15 17H9a4 4 0 0 1-4-4V9a7 7 0 0 1 14 0v4a4 4 0 0 1-4 4Z"/>
+          <path d="M10 20h4"/>
+        </svg>
+      </button>
+
+      <div class="avatar-small">AS</div>
+
+      <div class="profile-info">
+        <strong>Olá, Dra. Ana Silva</strong>
+        <span>Médica</span>
+      </div>
+
+      <svg class="chevron" viewBox="0 0 24 24">
+        <path d="m7 10 5 5 5-5"/>
+      </svg>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="hero">
+      <div>
+        <div class="breadcrumb">
+          <span>Início</span>
+          <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+          <span>Prontuários</span>
+          <svg viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+          <span>Prontuário médico</span>
+        </div>
+
+        <h1>Prontuário Médico</h1>
+        <p>Informações do paciente e resumo da triagem.</p>
+      </div>
+
+      <div class="hero-actions">
+        <button class="btn-secondary" type="button">
+          <svg viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></svg>
+          Voltar para triagem
+        </button>
+
+        <button class="btn-primary" type="button" id="btnDrChamar">
+          Dr. Chamar
+          <svg viewBox="0 0 24 24"><path d="m7 10 5 5 5-5"/></svg>
+        </button>
+      </div>
+    </section>
+
+    <section class="patient-card">
+      <div class="patient-main">
+        <div class="avatar-big" id="patientInitials">JS</div>
+
+        <div>
+          <h2 id="patientName">João da Silva</h2>
+          <p>
+            <span id="patientAge">42 anos, 7 meses</span>
+            <span class="dot">•</span>
+            <span id="patientSex">Masculino</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="patient-info">
+        <span>Data de nascimento</span>
+        <strong>
+          <svg viewBox="0 0 24 24">
+            <path d="M8 2v4M16 2v4M3 10h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/>
+          </svg>
+          12/11/1982
+        </strong>
+      </div>
+
+      <div class="patient-info">
+        <span>Prontuário / SUS</span>
+        <strong>000.123.567890-1</strong>
+      </div>
+
+      <div class="patient-info">
+        <span>Contato</span>
+        <strong>
+          <svg viewBox="0 0 24 24">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.8 19.8 0 0 1 3.09 5.18 2 2 0 0 1 5.11 3h3a2 2 0 0 1 2 1.72c.12.9.32 1.77.59 2.61a2 2 0 0 1-.45 2.11L9 10.69a16 16 0 0 0 4.31 4.31l1.25-1.25a2 2 0 0 1 2.11-.45c.84.27 1.71.47 2.61.59A2 2 0 0 1 22 16.92Z"/>
+          </svg>
+          (11) 98765-4321
+        </strong>
+      </div>
+
+      <div class="patient-info">
+        <span>Situação</span>
+        <strong>
+          <small class="tag-green">Em atendimento</small>
+        </strong>
+        <em>Desde 15/06/2025 15:10</em>
+      </div>
+    </section>
+
+    <section class="alert-grid">
+      <article class="mini-card">
+        <div class="mini-icon blue">
+          <svg viewBox="0 0 24 24">
+            <path d="M21 15a4 4 0 0 1-4 4H8l-5 3V7a4 4 0 0 1 4-4h10a4 4 0 0 1 4 4Z"/>
+            <path d="M8 10h8M8 14h5"/>
+          </svg>
+        </div>
+
+        <div>
+          <span>Queixa principal</span>
+          <strong>Dor abdominal intensa</strong>
+          <p>Iniciou há cerca de 3 horas</p>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <div class="mini-icon orange">
+          <svg viewBox="0 0 24 24">
+            <path d="M12 21s-8-4.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 6.5-8 11-8 11Z"/>
+          </svg>
+        </div>
+
+        <div>
+          <span>Classificação de risco</span>
+          <strong class="orange-text">LARANJA - Muito urgente</strong>
+          <p>Definida na triagem às 15:10</p>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <div class="mini-icon red">
+          <svg viewBox="0 0 24 24">
+            <path d="M10.3 3.3 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.3a2 2 0 0 0-3.4 0Z"/>
+            <path d="M12 9v4M12 17h.01"/>
+          </svg>
+        </div>
+
+        <div>
+          <span>Alerta de alergia</span>
+          <strong class="red-text">Alergia à Dipirona</strong>
+          <p>Registrar atenção</p>
+        </div>
+      </article>
+
+      <article class="mini-card">
+        <div class="mini-icon gray">
+          <svg viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10"/>
+            <path d="M12 6v6l4 2"/>
+          </svg>
+        </div>
+
+        <div>
+          <span>Última atualização</span>
+          <strong>15/6/2025 15:22</strong>
+          <p>Por Enf. Maria Santos</p>
+        </div>
+      </article>
+    </section>
+
+    <section class="content-grid">
+      <div class="left-column">
+        <section class="summary-card">
+          <h3>Resumo da triagem</h3>
+
+          <div class="summary-top">
+            <div class="summary-item">
+              <svg viewBox="0 0 24 24">
+                <path d="M8 2v4M16 2v4M3 10h18M5 5h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Z"/>
+              </svg>
+              <span>Data/Hora</span>
+              <strong>15/06/2025 15:10</strong>
+            </div>
+
+            <div class="summary-item">
+              <svg viewBox="0 0 24 24">
+                <path d="M20 21a8 8 0 0 0-16 0"/>
+                <circle cx="12" cy="7" r="4"/>
+              </svg>
+              <span>Triagista</span>
+              <strong>Enf. Maria Santos</strong>
+              <small>COREN-SP 123456</small>
+            </div>
+
+            <div class="summary-item">
+              <svg viewBox="0 0 24 24">
+                <path d="M12 21s7-4.5 7-11a7 7 0 1 0-14 0c0 6.5 7 11 7 11Z"/>
+                <circle cx="12" cy="10" r="2"/>
+              </svg>
+              <span>Unidade</span>
+              <strong>Pronto Atendimento</strong>
+              <small>Sala de Triagem 02</small>
+            </div>
+
+            <div class="summary-item">
+              <svg viewBox="0 0 24 24">
+                <path d="M16 3h5v5M21 3l-7 7M8 21H3v-5M3 21l7-7"/>
+              </svg>
+              <span>Fluxo</span>
+              <strong>Demanda espontânea</strong>
+            </div>
+          </div>
+
+          <div class="summary-list">
+            <div>
+              <strong>Localização da dor</strong>
+              <span>Região epigástrica e periumbilical, com irradiação para hipocôndrio direito.</span>
+            </div>
+
+            <div>
+              <strong>Intensidade da dor</strong>
+              <span>8/10 (dor intensa)</span>
+            </div>
+
+            <div>
+              <strong>Início dos sintomas</strong>
+              <span>Iniciou há cerca de 3 horas. Piora com ingestão de alimentos.</span>
+            </div>
+
+            <div>
+              <strong>Sintomas atuais</strong>
+              <span>Náuseas, vômitos, febre e sensação de inchaço abdominal.</span>
+            </div>
+
+            <div>
+              <strong>Anamnese inicial</strong>
+              <span>Paciente relata dor abdominal súbita e intensa há 3 horas. Nega cirurgias prévias. Nega doenças crônicas conhecidas. Nega uso contínuo de medicações.</span>
+            </div>
+          </div>
+
+          <div class="vitals">
+            <div>
+              <svg viewBox="0 0 24 24">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>
+              </svg>
+              <span>PA</span>
+              <strong>142/90</strong>
+              <small>mmHg</small>
+            </div>
+
+            <div>
+              <svg viewBox="0 0 24 24">
+                <path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 0 0-7.8 7.8l1 1L12 21l7.8-7.6 1-1a5.5 5.5 0 0 0 0-7.8Z"/>
+              </svg>
+              <span>FC</span>
+              <strong>104</strong>
+              <small>bpm</small>
+            </div>
+
+            <div>
+              <svg viewBox="0 0 24 24">
+                <path d="M6 19V9a4 4 0 0 1 8 0v10M14 14h3a4 4 0 0 0 0-8"/>
+              </svg>
+              <span>FR</span>
+              <strong>22</strong>
+              <small>irpm</small>
+            </div>
+
+            <div>
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22a6 6 0 0 0 6-6c0-4-6-12-6-12S6 12 6 16a6 6 0 0 0 6 6Z"/>
+              </svg>
+              <span>SpO₂</span>
+              <strong>96</strong>
+              <small>%</small>
+            </div>
+
+            <div>
+              <svg viewBox="0 0 24 24">
+                <path d="M14 14.76V5a2 2 0 1 0-4 0v9.76a4 4 0 1 0 4 0Z"/>
+              </svg>
+              <span>Temp.</span>
+              <strong>37,6</strong>
+              <small>°C</small>
+            </div>
+
+            <div>
+              <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M8 15s1.5 2 4 2 4-2 4-2M9 9h.01M15 9h.01"/>
+              </svg>
+              <span>Dor</span>
+              <strong>8</strong>
+              <small>(0-10)</small>
+            </div>
+
+            <div>
+              <svg viewBox="0 0 24 24">
+                <path d="M12 22a6 6 0 0 0 6-6c0-4-6-12-6-12S6 12 6 16a6 6 0 0 0 6 6Z"/>
+              </svg>
+              <span>Glicemia</span>
+              <strong>118</strong>
+              <small>mg/dL</small>
+            </div>
+          </div>
+
+          <div class="clinical-lines">
+            <div>
+              <strong>Alergias</strong>
+              <span>Dipirona (Metamizol)<br>Reação: Urticária. Gravidade: Moderada.</span>
+            </div>
+
+            <div>
+              <strong>Medicamentos em uso</strong>
+              <span>• Omeprazol 20mg — 1 comprimido 1x ao dia<br>• Losartana 50mg — 1 comprimido à noite (quando necessário)</span>
+            </div>
+
+            <div>
+              <strong>Hipótese / Observações (triagem)</strong>
+              <span>Dor abdominal intensa com sinais de irritação peritoneal. Manter monitorização e avaliação médica.</span>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <aside class="right-column">
+        <section class="body-card">
+          <div class="card-title-row">
+            <h3>Mapa corporal</h3>
+            <span class="info-dot">i</span>
+          </div>
+
+          <div class="body-selector">
+            <button class="gender-btn active" type="button" data-gender="male">Masculino</button>
+            <button class="gender-btn" type="button" data-gender="female">Feminino</button>
+          </div>
+
+          <div class="body-image-box no-bg">
+            <img
+              id="bodyImage"
+              src="../assets/mapa-masculino.png"
+              alt="Mapa corporal masculino"
+              class="body-image"
+            />
+
+            <button class="pain-btn male-point" type="button" data-name="Cabeça masculina" style="left: 25%; top: 16%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Tórax masculino" style="left: 25%; top: 30%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Abdômen masculino" style="left: 25%; top: 43%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Região pélvica masculina" style="left: 25%; top: 53%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Braço direito masculino" style="left: 40%; top: 43%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Ombro direito masculino" style="left: 82%; top: 30%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Coluna masculina" style="left: 72%; top: 32%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Lombar masculina" style="left: 72%; top: 48%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Joelho direito masculino" style="left: 76%; top: 79%;"></button>
+            <button class="pain-btn male-point" type="button" data-name="Tornozelo direito masculino" style="left: 76%; top: 92%;"></button>
+
+            <button class="pain-btn female-point hidden" type="button" data-name="Cabeça feminina" style="left: 25%; top: 16%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Mama esquerda" style="left: 21%; top: 31%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Mama direita" style="left: 29%; top: 31%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Baixo ventre" style="left: 25%; top: 49%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Ovário esquerdo" style="left: 20%; top: 55%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Ovário direito" style="left: 30%; top: 55%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Coluna feminina" style="left: 72%; top: 33%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Lombar feminina" style="left: 72%; top: 49%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Coxa esquerda feminina" style="left: 66%; top: 76%;"></button>
+            <button class="pain-btn female-point hidden" type="button" data-name="Coxa direita feminina" style="left: 78%; top: 76%;"></button>
+          </div>
+
+          <div class="selected-card">
+            <h4>Locais selecionados</h4>
+            <p id="selectedPainText">Nenhum local selecionado.</p>
+
+            <button type="button" id="clearPain">Limpar seleção</button>
+          </div>
+        </section>
+
+        <section class="quick-card">
+          <h3>Ações rápidas</h3>
+
+          <button type="button">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20h9"/>
+              <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+            </svg>
+            <span>
+              <strong>Iniciar anamnese</strong>
+              <small>Abrir formulário de anamnese</small>
+            </span>
+          </button>
+
+          <button type="button">
+            <svg viewBox="0 0 24 24">
+              <path d="M10 2v6L4 19a2 2 0 0 0 1.8 3h12.4A2 2 0 0 0 20 19L14 8V2"/>
+              <path d="M8.5 2h7"/>
+            </svg>
+            <span>
+              <strong>Solicitar exames</strong>
+              <small>Acessar pedidos de exames</small>
+            </span>
+          </button>
+
+          <button type="button">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 20h9"/>
+              <path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4Z"/>
+            </svg>
+            <span>
+              <strong>Prescrever medicação</strong>
+              <small>Abrir prescrição médica</small>
+            </span>
+          </button>
+
+          <button type="button">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/>
+              <path d="M14 2v6h6"/>
+            </svg>
+            <span>
+              <strong>Emitir atestado</strong>
+              <small>Gerar atestado médico</small>
+            </span>
+          </button>
+
+          <button type="button" class="more-action">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 5h.01M12 12h.01M12 19h.01"/>
+            </svg>
+            <span>
+              <strong>Mais ações</strong>
+            </span>
+          </button>
+        </section>
+      </aside>
+    </section>
+  </main>
+
+  <script src="../js/fluxo-hospital.js"></script>
+  <script src="../js/prontuario-medico.js"></script>
+</body>
+</html>

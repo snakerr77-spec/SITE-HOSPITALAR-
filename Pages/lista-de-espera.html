@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Recepção | Fila de Espera / Senhas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/lista-de-espera.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand-block"><div class="heart-logo">✚</div><div><strong>sua logo aqui</strong><span>Hospital Público</span></div></div>
+      <nav class="side-nav">
+        <a href="home-page.html"><span>⌂</span>Painel Inicial</a>
+        <a href="recepção.html"><span>♙</span>Atendimentos</a>
+        <a class="active" href="lista-de-espera.html"><span>☷</span>Fila de Espera / Senhas</a>
+        <a href="recepção.html"><span>☻</span>Pacientes</a>
+        <a href="recepção.html"><span>▣</span>Agendamentos</a>
+        <a href="triagem.html"><span>▤</span>Exames</a>
+        <a href="home-page.html#relatorios"><span>▥</span>Relatórios</a>
+        <a href="prontuario-medico.html"><span>✉</span>Comunicação</a>
+        <a href="home-page.html"><span>⚙</span>Configurações</a>
+      </nav>
+      <a class="help-link" href="#">? Ajuda e Suporte</a>
+    </aside>
+
+    <main class="main-content">
+      <header class="topbar">
+        <div class="topbar-left">
+          <div class="top-context">
+            <span class="page-pill">Recepção</span>
+            <div class="top-logo"><strong>Fila de Espera / Senhas</strong><span>controle de atendimento em tempo real</span></div>
+          </div>
+          <label class="search-box">
+            <span>⌕</span>
+            <input type="text" placeholder="Buscar paciente, senha ou guichê">
+          </label>
+        </div>
+        <nav class="top-nav">
+          <a href="home-page.html">⌂ Painel</a>
+          <a href="recepção.html">▦ Atendimentos</a>
+          <a href="recepção.html">☻ Pacientes</a>
+          <a class="active" href="lista-de-espera.html">☷ Fila de Espera</a>
+          <a href="home-page.html#relatorios">▥ Relatórios</a>
+          <a href="home-page.html">⚙ Configurações</a>
+        </nav>
+        <div class="user-area"><button class="notify">🔔<em>3</em></button><div class="avatar"></div><div><strong>Olá, Recepção</strong><span>recepcao@hospital.gov.br</span></div><b>⌄</b></div>
+      </header>
+
+      <section class="page-area">
+        <div class="page-head">
+          <div><h1>Fila de Espera / Senhas</h1><p>Gerencie as filas de atendimento e chame as próximas senhas.</p><div class="head-chips"><span>Atendimento ao público</span><span>Atualização automática</span><span>5 guichês ativos</span></div></div>
+          <div class="clock-box"><strong id="horaTela">10:24</strong><span>22 de maio de 2025 | Quinta-feira</span></div>
+        </div>
+
+        <div class="metrics">
+          <article class="metric"><span class="bubble red">☷</span><div><small>Total na Fila</small><strong id="totalFila">58</strong><em>pacientes aguardando</em></div></article>
+          <article class="metric"><span class="bubble red">⌛</span><div><small>Tempo Médio de Espera</small><strong>00:32</strong><em>hh:mm</em></div></article>
+          <article class="metric"><span class="bubble green">☻</span><div><small>Atendidos Hoje</small><strong>128</strong><em>pacientes</em></div></article>
+          <article class="metric"><span class="bubble red">▤</span><div><small>Senhas Emitidas Hoje</small><strong id="senhasEmitidas">186</strong><em>senhas</em></div></article>
+          <article class="metric"><span class="bubble purple">◷</span><div><small>Previsão de Espera</small><strong>00:45</strong><em>hh:mm</em></div></article>
+        </div>
+
+        <div class="dashboard-grid">
+          <section class="main-column">
+            <div class="counter-row">
+              <div>
+                <h2>Guichês Ativos</h2>
+                <div class="guiche-grid">
+                  <article class="guiche"><strong>Guichê 01</strong><small>Preferencial</small><span class="ok">● Atendendo</span><i>♙</i></article>
+                  <article class="guiche"><strong>Guichê 02</strong><small>Geral</small><span class="ok">● Atendendo</span><i>♙</i></article>
+                  <article class="guiche"><strong>Guichê 03</strong><small>Exames</small><span class="ok">● Atendendo</span><i>♙</i></article>
+                  <article class="guiche paused"><strong>Guichê 04</strong><small>Geral</small><span>● Em pausa</span><i>Ⅱ</i></article>
+                  <article class="guiche"><strong>Guichê 05</strong><small>Preferencial</small><span class="ok">● Atendendo</span><i>♙</i></article>
+                </div>
+              </div>
+
+              <article class="called-card">
+                <h2>Senhas Chamadas</h2>
+                <div class="called-box">
+                  <small>SENHA ATUAL</small>
+                  <strong id="senhaAtual">P 023</strong>
+                  <p>Guichê 01 • Preferencial</p>
+                  <hr>
+                  <small>PRÓXIMA SENHA</small>
+                  <b id="proximaSenha">P 025</b>
+                  <button id="btnChamar" type="button">🔊 Chamar próxima senha</button>
+                </div>
+              </article>
+            </div>
+
+            <section class="queue-card">
+              <div class="queue-card-head">
+                <div>
+                  <span class="queue-kicker">Controle da recepção</span>
+                  <h2>Fila de Espera</h2>
+                </div>
+
+                <label class="queue-search">
+                  <span>⌕</span>
+                  <input id="buscarFila" type="text" placeholder="Buscar por senha, paciente, categoria ou guichê">
+                </label>
+              </div>
+
+              <div class="tabs">
+                <button class="active" data-filter="todas">Todas <span>8</span></button>
+                <button data-filter="Preferencial">♙ Preferencial <span>4</span></button>
+                <button data-filter="Geral">♙ Geral <span>3</span></button>
+                <button data-filter="Exames">♙ Exames <span>1</span></button>
+              </div>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Senha</th><th>Paciente</th><th>Categoria</th><th>Guichê</th><th>Tempo de Espera</th><th>Status</th><th></th></tr></thead>
+                  <tbody id="queueBody">
+                    <tr data-cat="Preferencial"><td class="ticket">P 025</td><td>Maria Aparecida da Silva</td><td><span class="tag red">Preferencial</span></td><td>Guichê 01</td><td>00:37</td><td><span class="tag blue">Aguardando</span></td><td>♙</td></tr>
+                    <tr data-cat="Preferencial"><td class="ticket">P 026</td><td>José Carlos Pereira</td><td><span class="tag red">Preferencial</span></td><td>Guichê 01</td><td>00:28</td><td><span class="tag blue">Aguardando</span></td><td>♙</td></tr>
+                    <tr data-cat="Geral"><td class="ticket">G 037</td><td>Ana Paula Souza</td><td><span class="tag gray">Geral</span></td><td>Guichê 02</td><td>00:22</td><td><span class="tag blue">Aguardando</span></td><td>♙</td></tr>
+                    <tr data-cat="Geral"><td class="ticket">G 038</td><td>Rogério Mendes</td><td><span class="tag gray">Geral</span></td><td>Guichê 02</td><td>00:15</td><td><span class="tag blue">Aguardando</span></td><td>♙</td></tr>
+                    <tr data-cat="Exames"><td class="ticket">E 012</td><td>Carlos Alberto Lima</td><td><span class="tag green">Exames</span></td><td>Guichê 03</td><td>00:40</td><td><span class="tag blue">Aguardando</span></td><td>♙</td></tr>
+                    <tr data-cat="Preferencial"><td class="ticket">P 027</td><td>Sebastiana Oliveira</td><td><span class="tag red">Preferencial</span></td><td>Guichê 04</td><td>00:50</td><td><span class="tag orange">Em espera</span></td><td>Ⅱ</td></tr>
+                    <tr data-cat="Geral"><td class="ticket">G 039</td><td>Juliana Ferreira</td><td><span class="tag gray">Geral</span></td><td>Guichê 05</td><td>00:55</td><td><span class="tag blue">Aguardando</span></td><td>♙</td></tr>
+                    <tr data-cat="Preferencial"><td class="ticket">P 028</td><td>João Batista dos Santos</td><td><span class="tag red">Preferencial</span></td><td>Guichê 01</td><td>01:02</td><td><span class="tag blue">Aguardando</span></td><td>♙</td></tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="table-footer">
+                <span id="tableInfo">Exibindo 1 a 8 de 58 registros</span>
+                <div class="pages" id="pagination"></div>
+              </div>
+            </section>
+          </section>
+
+          <aside class="right-column">
+            <section class="card alert-card"><h2>🔔 Alertas</h2><div class="alert"><span>⏰</span><div><strong>Tempo de espera elevado</strong><p>Na fila Preferencial o tempo médio já ultrapassou 30 minutos.</p><a>Ver detalhes</a></div></div><div class="alert"><span class="warn">⚠</span><div><strong>Guichê 04 em pausa</strong><p>Encaminhe um atendente para reduzir o tempo de espera.</p><a>Ver detalhes</a></div></div><div class="alert"><span class="info">i</span><div><strong>Sistema operacional</strong><p>Todos os guichês ativos estão funcionando normalmente.</p><a>Ver detalhes</a></div></div></section>
+            <section class="card chart-card"><h2>Distribuição por Categoria</h2><div class="donut"></div><ul><li><b class="red-dot"></b>Preferencial <span>18 (31%)</span></li><li><b class="blue-dot"></b>Geral <span>30 (52%)</span></li><li><b class="green-dot"></b>Exames <span>10 (17%)</span></li></ul></section>
+            <section class="card update-card"><h2>⟳ Última Atualização</h2><strong id="lastUpdate">10:24:30</strong><p>Atualizado automaticamente</p></section>
+          </aside>
+        </div>
+      </section>
+    </main>
+  </div>
+  <div class="toast" id="toast"></div>  <script src="../js/fluxo-hospital.js"></script>
+  <script src="../js/lista-de-espera.js"></script>
+</body>
+</html>
